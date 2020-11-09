@@ -15,7 +15,9 @@
       </v-col>
     </v-row>
     <v-row align="center" justify="space-around">
-      <v-btn depressed color="primary" @click="iniciarSesion"> Login </v-btn>
+      <v-btn depressed color="primary" @click="iniciarSesion"
+        >Iniciar sesión</v-btn
+      >
     </v-row>
   </v-container>
 </template>
