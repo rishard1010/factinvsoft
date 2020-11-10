@@ -1,24 +1,40 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <v-col cols="12" sm="6" md="6">
-        <v-text-field v-model="usuario" label="Usuario" outlined></v-text-field>
-      </v-col>
+    <v-card elevation="5">
+      <v-card-text>
+        <v-row justify="center">
+          <v-col cols="12" sm="12" md="12">
+            <v-text-field
+              v-model="usuario"
+              label="Usuario"
+              outlined
+              placeholder="Ingrese el usuario"
+              required
+            ></v-text-field>
+          </v-col>
 
-      <v-col cols="12" sm="6" md="6">
-        <v-text-field
-          v-model="clave"
-          label="Contraseña"
-          type="password"
-          outlined
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    <v-row align="center" justify="space-around">
-      <v-btn depressed color="primary" @click="iniciarSesion"
-        >Iniciar sesión</v-btn
-      >
-    </v-row>
+          <v-col cols="12" sm="12" md="12">
+            <v-text-field
+              v-model="clave"
+              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              :type="show1 ? 'text' : 'password'"
+              label="Contraseña"
+              outlined
+              placeholder="Ingrese la contraseña"
+              required
+              @click:append="show1 = !show1"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-card-actions>
+          <v-row align="center" justify="space-around">
+            <v-btn depressed color="primary" @click="iniciarSesion"
+              >Iniciar sesión</v-btn
+            >
+          </v-row>
+        </v-card-actions>
+      </v-card-text>
+    </v-card>
   </v-container>
 </template>
 
@@ -28,6 +44,8 @@ export default {
 
   data() {
     return {
+      show1: false,
+      password: 'Password',
       usuario: '',
       clave: '',
     }
@@ -64,4 +82,5 @@ export default {
   },
 }
 </script>
-<style></style>
+<style scoped></style>
+>
