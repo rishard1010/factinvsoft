@@ -45,7 +45,7 @@ export default {
         confirmButtonText: 'Yes, delete it!',
       })
       if (resultado.isConfirmed) {
-        this.$swal.fire('Deleted!', 'Your file has been deleted.', 'success')
+        this.$swal('Deleted!', 'Your file has been deleted.', 'success')
       }
       try {
         const response = await this.$auth.loginWith('local', {
