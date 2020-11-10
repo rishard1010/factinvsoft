@@ -34,6 +34,19 @@ export default {
   },
   methods: {
     async iniciarSesion() {
+      const resultado = await this.$swal({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'info',
+        iconColor: '#d33',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!',
+      })
+      if (resultado.isConfirmed) {
+        this.$swal.fire('Deleted!', 'Your file has been deleted.', 'success')
+      }
       try {
         const response = await this.$auth.loginWith('local', {
           data: { usuario: this.usuario, clave: this.clave },
