@@ -2,7 +2,7 @@
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
-      color="#111A51"
+      color="#0F184A"
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
@@ -59,6 +59,7 @@ export default {
   components: { Snackbar },
   data() {
     return {
+      nombreUsuario: this.$auth.user[0].NOMBREUSUARIO,
       clipped: false,
       drawer: true,
       fixed: true,
@@ -71,22 +72,27 @@ export default {
         {
           icon: 'mdi-account',
           title: 'Clientes',
-          to: '/',
+          to: '/clientes',
         },
         {
           icon: 'mdi-spotlight-beam',
           title: 'Productos',
-          to: '/inspire',
+          to: '/productos',
+        },
+        {
+          icon: 'mdi-shopping',
+          title: 'Ventas',
+          to: '/ventas',
         },
         {
           icon: 'mdi-chart-pie',
           title: 'Facturación',
-          to: '/inspire',
+          to: '/facturacion',
         },
         {
           icon: 'mdi-account-multiple',
           title: 'Usuarios',
-          to: '/inspire',
+          to: '/usuarios',
         },
       ],
       miniVariant: false,
