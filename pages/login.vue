@@ -1,6 +1,6 @@
 <template>
   <div class="bg">
-    <v-row justify="center" align="center">
+    <v-row justify="center" align="right">
       <v-col cols="12" lg="4" md="4" xs="12">
         <v-card elevation="5">
           <v-card-text class="pb-0">
