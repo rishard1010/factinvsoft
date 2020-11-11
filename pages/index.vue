@@ -92,6 +92,10 @@ export default {
   },
   methods: {
     cerrarSesion() {
+      // this.$notifier.showMessage({
+      //   content: 'Bienvenido',
+      //   color: 'info',
+      // })
       this.$auth.logout()
     },
   },
