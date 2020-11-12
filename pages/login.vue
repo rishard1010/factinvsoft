@@ -1,57 +1,74 @@
 <template>
-  <div class="bg">
-    <v-row justify="center" align="right">
-      <v-col cols="12" lg="4" md="4" xs="12">
-        <v-card elevation="5">
-          <v-card-text class="pb-0">
-            <v-row justify="center">
-              <v-col cols="12" sm="12" md="12">
-                <v-text-field
-                  v-model="usuario"
-                  label="Usuario"
-                  outlined
-                  placeholder="Ingrese el usuario"
-                  required
-                ></v-text-field>
-              </v-col>
-
-              <v-col cols="12" sm="12" md="12">
-                <v-text-field
-                  v-model="clave"
-                  :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                  :type="show1 ? 'text' : 'password'"
-                  label="Contraseña"
-                  outlined
-                  placeholder="Ingrese la contraseña"
-                  required
-                  @click:append="show1 = !show1"
-                ></v-text-field>
-              </v-col>
-            </v-row>
-          </v-card-text>
-          <v-card-actions>
-            <v-row align="center" justify="space-around">
-              <v-btn depressed color="primary" @click="iniciarSesion"
-                >Iniciar sesión</v-btn
+  <v-main style="height: 100vh">
+    <v-app class="fill-height" fluid>
+      <v-row align="center" justify="center">
+        <v-col
+          cols="12"
+          xl="7"
+          lg="7"
+          class="align-center justify-center fill-height d-none d-lg-flex d-xl-flex informacion"
+        >
+          <h2>Hola</h2>
+          <h6>Buenas</h6>
+        </v-col>
+        <v-col
+          cols="12"
+          xl="5"
+          lg="5"
+          class="pa-15 align-center justify-center inicioSesion fill-height"
+        >
+          <v-img
+            class="mb-4"
+            :src="require('@/static/logoapp.svg')"
+            contain
+            :aspect-ratio="16 / 7"
+          />
+          <v-text-field
+            v-model="usuario"
+            prepend-icon="fal fa-user"
+            label="Usuario"
+            outlined
+            dark
+            placeholder="Ingrese el usuario"
+            required
+          ></v-text-field>
+          <v-text-field
+            v-model="clave"
+            prepend-icon="far fa-lock-alt"
+            :append-icon="show1 ? 'fal fa-eye' : 'fal fa-eye-slash'"
+            :type="show1 ? 'text' : 'password'"
+            label="Contraseña"
+            outlined
+            dark
+            placeholder="Ingrese la contraseña"
+            required
+            @click:append="show1 = !show1"
+          ></v-text-field>
+          <v-btn x-large color="primary" @click="iniciarSesion"
+            ><v-icon left> far fa-sign-in </v-icon>Iniciar sesión</v-btn
+          >
+          <v-snackbar
+            v-model="snackbar"
+            color="error"
+            top="true"
+            right="true"
+            elevation="24"
+          >
+            {{ respuestaLogin }}
+            <template v-slot:action="{ attrs }">
+              <v-btn
+                color="primary"
+                text
+                v-bind="attrs"
+                @click="snackbar = false"
+                >x</v-btn
               >
-              <v-snackbar
-                v-model="snackbar"
-                color="error"
-                top="true"
-                right="true"
-                elevation="24"
-              >
-                {{ respuestaLogin }}
-                <template v-slot:action="{ attrs }">
-                  <v-btn text v-bind="attrs" @click="snackbar = false">x</v-btn>
-                </template>
-              </v-snackbar>
-            </v-row>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-  </div>
+            </template>
+          </v-snackbar>
+        </v-col>
+      </v-row>
+    </v-app>
+  </v-main>
 </template>
 
 <script>
@@ -85,11 +102,6 @@ export default {
 }
 </script>
 <style scoped>
-.fondoLogin {
-  background: url('~static/login.svg');
-  background-size: 100% 100%;
-  background-position: center top;
-}
 .bg {
   width: 100%;
   height: 100%;
@@ -100,5 +112,11 @@ export default {
   background-size: 100% 100%;
   background-position: center top;
 }
+.informacion {
+  background-color: #0f184a !important;
+}
+.inicioSesion {
+  text-align: center;
+  background-color: #e23e11 !important;
+}
 </style>
->
