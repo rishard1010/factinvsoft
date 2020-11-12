@@ -8,8 +8,12 @@
           lg="7"
           class="align-center justify-center fill-height d-none d-lg-flex d-xl-flex informacion"
         >
-          <h2>Hola</h2>
-          <h6>Buenas</h6>
+          <v-img
+            class="mb-4"
+            :src="require('@/static/logo.svg')"
+            contain
+            :aspect-ratio="16 / 7"
+          />
         </v-col>
         <v-col
           cols="12"
@@ -19,9 +23,9 @@
         >
           <v-img
             class="mb-4"
-            :src="require('@/static/logoapp.svg')"
+            :src="require('@/static/logoazul.svg')"
             contain
-            :aspect-ratio="16 / 7"
+            :aspect-ratio="16 / 6"
           />
           <v-text-field
             v-model="usuario"
