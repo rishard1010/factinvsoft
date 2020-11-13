@@ -34,7 +34,7 @@
             outlined
             dark
             placeholder="Ingrese el usuario"
-            required
+            :rules="[required('Usuario')]"
           ></v-text-field>
           <v-text-field
             v-model="clave"
@@ -45,7 +45,7 @@
             outlined
             dark
             placeholder="Ingrese la contraseña"
-            required
+            :rules="[required('Contraseña')]"
             @click:append="show1 = !show1"
           ></v-text-field>
           <v-btn x-large color="primary" @click="iniciarSesion"
@@ -53,18 +53,14 @@
           >
           <v-snackbar
             v-model="snackbar"
-            color="error"
+            color="primary"
             top="true"
             right="true"
             elevation="24"
           >
             {{ respuestaLogin }}
             <template v-slot:action="{ attrs }">
-              <v-btn
-                color="primary"
-                text
-                v-bind="attrs"
-                @click="snackbar = false"
+              <v-btn color="white" text v-bind="attrs" @click="snackbar = false"
                 >x</v-btn
               >
             </template>
@@ -76,11 +72,13 @@
 </template>
 
 <script>
+import validations from '@/utils/validations'
 export default {
   layout: 'session',
 
   data() {
     return {
+      ...validations,
       show1: false,
       password: 'Password',
       usuario: '',

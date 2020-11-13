@@ -25,6 +25,21 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <v-list slot="append" dense>
+        <v-divider></v-divider>
+        <v-list-item dense @click="$auth.logout()">
+          <v-list-item-action
+            ><v-icon color="white" left
+              >fas fa-sign-out</v-icon
+            ></v-list-item-action
+          >
+          <v-list-item-content>
+            <v-list-item-title class="white--text">
+              Cerrar sesión
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -65,32 +80,32 @@ export default {
       fixed: true,
       items: [
         {
-          icon: 'mdi-home',
+          icon: 'fas fa-home',
           title: 'Inicio',
           to: '/',
         },
         {
-          icon: 'mdi-account',
+          icon: 'fas fa-user',
           title: 'Clientes',
           to: '/clientes',
         },
         {
-          icon: 'mdi-spotlight-beam',
-          title: 'Productos',
+          icon: 'fas fa-toolbox',
+          title: 'Inventario',
           to: '/productos',
         },
         {
-          icon: 'mdi-shopping',
+          icon: 'fas fa-shopping-bag',
           title: 'Ventas',
           to: '/ventas',
         },
         {
-          icon: 'mdi-chart-pie',
+          icon: 'fas fa-chart-pie',
           title: 'Facturación',
           to: '/facturacion',
         },
         {
-          icon: 'mdi-account-multiple',
+          icon: 'fas fa-user-unlock',
           title: 'Usuarios',
           to: '/usuarios',
         },
