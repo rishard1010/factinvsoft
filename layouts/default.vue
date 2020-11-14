@@ -87,27 +87,27 @@ export default {
         {
           icon: 'fas fa-user',
           title: 'Clientes',
-          to: '/clientes',
+          to: '/clientes/clientes',
         },
         {
           icon: 'fas fa-toolbox',
           title: 'Inventario',
-          to: '/productos',
+          to: '/inventario/inventario',
         },
         {
           icon: 'fas fa-shopping-bag',
           title: 'Ventas',
-          to: '/ventas',
+          to: '/ventas/ventas',
         },
         {
           icon: 'fas fa-chart-pie',
           title: 'Facturación',
-          to: '/facturacion',
+          to: '/facturacion/facturacion',
         },
         {
           icon: 'fas fa-user-unlock',
           title: 'Usuarios',
-          to: '/usuarios',
+          to: '/usuarios/usuarios',
         },
       ],
       miniVariant: false,
