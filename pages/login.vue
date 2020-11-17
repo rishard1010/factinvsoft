@@ -53,8 +53,8 @@
             <v-snackbar
               v-model="snackbar"
               color="primary"
-              top="true"
-              right="true"
+              :top="true"
+              :right="true"
               elevation="24"
             >
               {{ respuestaLogin }}

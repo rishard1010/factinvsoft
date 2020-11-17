@@ -74,7 +74,6 @@ export default {
   components: { Snackbar },
   data() {
     return {
-      nombreUsuario: this.$auth.user[0].NOMBREUSUARIO,
       clipped: false,
       drawer: true,
       fixed: true,

@@ -2,8 +2,8 @@
   <v-snackbar
     v-model="show"
     :color="color"
-    top="true"
-    right="true"
+    :top="true"
+    :right="true"
     elevation="24"
   >
     {{ message }}
