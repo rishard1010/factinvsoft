@@ -52,7 +52,7 @@
             >
             <v-snackbar
               v-model="snackbar"
-              color="primary"
+              color="secondary"
               :top="true"
               :right="true"
               elevation="24"
