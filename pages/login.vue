@@ -111,7 +111,7 @@ export default {
 }
 </script>
 <style scoped>
-.bg {
+/* .bg {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -120,7 +120,7 @@ export default {
   background: url('~static/login.svg') no-repeat center center;
   background-size: 100% 100%;
   background-position: center top;
-}
+} */
 .informacion {
   background-color: #0f184a !important;
 }

@@ -41,8 +41,20 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar
+      dark
+      :src="require('@/static/fondo.svg')"
+      :clipped-left="clipped"
+      fixed
+      app
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-img
+        contain
+        :src="require('@/static/logobanner.svg')"
+        max-width="48"
+        class="mr-2"
+      />
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
@@ -112,8 +124,13 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js',
+      title: 'Sistema facturación e inventarios',
     }
   },
 }
 </script>
+<style scoped>
+.margenlogo {
+  margin-top: 74px;
+}
+</style>
