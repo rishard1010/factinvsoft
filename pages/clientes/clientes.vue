@@ -6,8 +6,8 @@
         <v-toolbar-title class="ml-2"> Clientes </v-toolbar-title>
       </v-toolbar>
 
-      <v-card class="mx-auto" max-width="1000" style="margin-top: -50px">
-        <v-toolbar color="primary" flat>
+      <v-card class="mx-auto border" max-width="1000" style="margin-top: -50px">
+        <v-toolbar :src="require('@/static/fondo.svg')" flat>
           <v-toolbar-title class="white--text">
             Ingrese la información del cliente
           </v-toolbar-title>

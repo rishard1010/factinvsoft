@@ -2,7 +2,7 @@
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
-      color="#0F184A"
+      :src="require('@/static/fondolat.svg')"
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
@@ -42,6 +42,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
+      class="bordernav"
       dark
       :src="require('@/static/fondo.svg')"
       :clipped-left="clipped"
@@ -132,5 +133,8 @@ export default {
 <style scoped>
 .margenlogo {
   margin-top: 74px;
+}
+.bordernav {
+  border-radius: 0px 20px 0px 20px !important;
 }
 </style>
