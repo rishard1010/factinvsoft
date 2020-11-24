@@ -45,6 +45,7 @@
               outlined
               placeholder="Ingrese la contraseña"
               :rules="[required('contraseña')]"
+              @keyup.enter="iniciarSesion"
               @click:append="show1 = !show1"
             ></v-text-field>
             <v-btn x-large color="primary" @click="iniciarSesion"

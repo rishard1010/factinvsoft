@@ -14,8 +14,7 @@
           :key="i"
           class="white--text"
           :to="item.to"
-          router
-          exact
+          dense
         >
           <v-list-item-action>
             <v-icon color="white">{{ item.icon }}</v-icon>
@@ -50,16 +49,18 @@
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-img
-        contain
-        :src="require('@/static/logobanner.svg')"
-        max-width="48"
-        class="mr-2"
-      />
-      <v-toolbar-title v-text="title" />
+      <v-btn icon to="/">
+        <v-img
+          contain
+          :src="require('@/static/logobanner.svg')"
+          max-width="48"
+          class="mr-2"
+        />
+      </v-btn>
+      <v-toolbar-title class="pl-2" v-text="title" />
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
+      <v-btn icon @click.stop="">
+        <v-icon>fas fa-user-cog</v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -67,16 +68,6 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <Snackbar></Snackbar>
   </v-app>
 </template>
@@ -123,8 +114,6 @@ export default {
         },
       ],
       miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Sistema facturación e inventarios',
     }
   },
