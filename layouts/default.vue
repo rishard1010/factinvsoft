@@ -2,27 +2,14 @@
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
+      style="width: auto"
       :src="require('@/static/fondolat.svg')"
-      :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
       app
     >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          class="white--text"
-          :to="item.to"
-          dense
-        >
-          <v-list-item-action>
-            <v-icon color="white">{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title class="white--text" v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
+      <v-list dense>
+        <app-menu-item v-for="item in items" :key="item.OPCION" :item="item" />
       </v-list>
       <v-list slot="append" dense>
         <v-divider></v-divider>
@@ -73,47 +60,49 @@
 </template>
 
 <script>
+import AppMenuItem from '@/components/app/AppMenuItem'
 import Snackbar from '~/components/Snackbar.vue'
 export default {
-  components: { Snackbar },
+  components: { Snackbar, AppMenuItem },
+  async fetch() {
+    const opciones = await this.$axios.$get('/api/auth/menu')
+
+    const menu = []
+    ;[...opciones].forEach((row) => {
+      let modulo = menu.find((m) => m.MENU === row.MENU)
+      if (!modulo) {
+        modulo = {
+          ICONO: row.ICONOMENU,
+          MENU: row.MENU,
+          DESCRIPCION: row.DESCRIPCIONMENU,
+          items: [],
+        }
+        menu.push(modulo)
+      }
+      if (row.SUBMENU) {
+        let submodulo = modulo.items.find((s) => s.MENU === row.SUBMENU)
+        if (!submodulo) {
+          submodulo = {
+            MENU: row.SUBMENU,
+            DESCRIPCION: row.DESCRIPCIONSUBMENU,
+            items: [],
+          }
+          modulo.items.push(submodulo)
+        }
+        submodulo.items.push(row)
+      } else {
+        modulo.items.push(row)
+      }
+    })
+    this.items = [...menu]
+  },
   data() {
     return {
       clipped: false,
       drawer: true,
       fixed: true,
-      items: [
-        {
-          icon: 'fas fa-home',
-          title: 'Inicio',
-          to: '/',
-        },
-        {
-          icon: 'fas fa-user',
-          title: 'Clientes',
-          to: '/clientes/clientes',
-        },
-        {
-          icon: 'fas fa-toolbox',
-          title: 'Inventario',
-          to: '/inventario/inventario',
-        },
-        {
-          icon: 'fas fa-shopping-bag',
-          title: 'Ventas',
-          to: '/ventas/ventas',
-        },
-        {
-          icon: 'fas fa-chart-pie',
-          title: 'Facturación',
-          to: '/facturacion/facturacion',
-        },
-        {
-          icon: 'fas fa-user-unlock',
-          title: 'Usuarios',
-          to: '/usuarios/usuarios',
-        },
-      ],
-      miniVariant: false,
+      menu: [],
+      items: [],
       title: 'Sistema facturación e inventarios',
     }
   },
