@@ -2,7 +2,6 @@
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
-      style="width: auto"
       :src="require('@/static/fondolat.svg')"
       :clipped="clipped"
       fixed
