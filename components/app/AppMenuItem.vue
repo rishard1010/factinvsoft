@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-list v-if="item.items && item.items.length" dense>
-      <v-list-group color="white">
+      <v-list-group class="contenido" color="white">
         <v-list-item-content slot="activator">
           <v-list-item-title class="white--text">
             <v-icon color="white" left>
@@ -45,7 +45,7 @@ export default {
 }
 </script>
 <style scoped>
-.v-icon {
-  color: white;
+.contenido {
+  width: fit-content;
 }
 </style>
