@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-list v-if="item.items && item.items.length" dense class="py-0">
+    <v-list v-if="item.items && item.items.length" dense>
       <v-list-group color="white">
-        <v-list-item-content slot="activator" class="pl-3">
+        <v-list-item-content slot="activator">
           <v-list-item-title class="white--text">
             <v-icon color="white" left>
               {{ item.ICONO || 'mdi-chevron-right' }}
@@ -13,16 +13,16 @@
         <app-menu-item
           v-for="subchild in item.items"
           :key="subchild.MENU + subchild.OPCION"
-          class="pl-3"
+          class="pl-1"
           :name="subchild.MENU"
           :item="subchild"
         />
       </v-list-group>
     </v-list>
     <v-list-item v-else :to="item.RUTA">
-      <v-list-item-content class="pl-3">
+      <v-list-item-content>
         <v-list-item-title class="white--text">
-          <v-icon color="white" left>
+          <v-icon small color="white" left>
             {{ item.ICONOOPCION || 'mdi-arrow-right' }}
           </v-icon>
           {{ item.DESCRIPCION }}
