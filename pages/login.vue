@@ -103,6 +103,8 @@ export default {
         })
         if (!response.data.success) {
           this.snackbar = true
+        } else {
+          this.$store.dispatch('cargarMenu')
         }
       } catch (err) {
         this.snackbar = true
