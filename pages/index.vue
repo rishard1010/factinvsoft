@@ -96,7 +96,6 @@ export default {
       //   content: 'Bienvenido',
       //   color: 'info',
       // })
-      this.$auth.logout()
     },
   },
 }
