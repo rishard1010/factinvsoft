@@ -29,7 +29,11 @@ export default {
   css: ['~/assets/css/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/notifier.js', '~/plugins/localStorage.js'],
+  plugins: [
+    '~/plugins/notifier.js',
+    '~/plugins/localStorage.js',
+    '~/plugins/axios',
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -59,8 +63,8 @@ export default {
     redirect: {
       login: '/login',
       logout: '/login',
-      callback: '/login',
-      home: '/',
+      callback: false,
+      home: false,
     },
     strategies: {
       local: {

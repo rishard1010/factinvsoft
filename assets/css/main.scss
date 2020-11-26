@@ -1,6 +1,12 @@
 *{
     font-family: 'Mulish', sans-serif;
 }
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #FFFFFF;
+}
 .border{
     border-radius: 20px 0px 0px 0px !important;
 }

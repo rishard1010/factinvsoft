@@ -7,7 +7,7 @@
       fixed
       app
     >
-      <v-list dense>
+      <v-list dark dense>
         <app-menu-item
           v-for="item in $store.getters.getMenu"
           :key="item.OPCION"

@@ -105,6 +105,7 @@ export default {
           this.snackbar = true
         } else {
           this.$store.dispatch('cargarMenu')
+          this.$router.push({ path: '/' })
         }
       } catch (err) {
         this.snackbar = true
