@@ -194,7 +194,7 @@
               hide-details
             ></v-text-field>
           </v-col>
-          <v-col class="text-center mx-auto" cols="12" md="4">
+          <v-col cols="12" md="4">
             <v-text-field
               v-model.number="compania.TELEFONO"
               label="Número telefono*"
@@ -205,7 +205,7 @@
               :rules="[required('telefono')]"
             ></v-text-field>
           </v-col>
-          <v-col class="text-center mx-auto" cols="12" md="4">
+          <v-col cols="12" md="4">
             <v-text-field
               v-model="compania.EMAIL"
               label="Correo electrónico*"
@@ -216,7 +216,7 @@
               :rules="[emailFormat('correo electrónico')]"
             ></v-text-field>
           </v-col>
-          <v-col class="text-center mx-auto" cols="12" md="4">
+          <v-col cols="12" md="4">
             <v-switch
               v-model="compania.ACTIVA"
               true-value="1"
