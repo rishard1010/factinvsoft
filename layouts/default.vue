@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app class="fondo" dark>
     <v-navigation-drawer
       v-model="drawer"
       :src="require('@/static/fondolat.svg')"
@@ -92,5 +92,8 @@ export default {
 }
 .seleccion:hover {
   cursor: pointer;
+}
+.fondo {
+  background-color: #eeeeee;
 }
 </style>
