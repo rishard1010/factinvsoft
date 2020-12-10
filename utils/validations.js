@@ -13,7 +13,7 @@ const maxLength = (propertyType, maxLength) => {
     `${propertyType} debe ser menor de ${maxLength} caracteres`
 }
 const isNumber = (propertyType) => {
-  return (v) => (v && !isNaN(v)) || `${propertyType} debe ser un numero`
+  return (v) => (v && !isNaN(v)) || `${propertyType} debe ser numérico`
 }
 const emailFormat = () => {
   const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,24})+$/
