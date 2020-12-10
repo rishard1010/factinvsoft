@@ -32,6 +32,7 @@ export default {
     '~/plugins/notifier.js',
     '~/plugins/localStorage.js',
     '~/plugins/axios',
+    '~/plugins/fields',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
